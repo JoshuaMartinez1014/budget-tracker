@@ -1,11 +1,13 @@
 function Home(props) {
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center flex-col">
-        <h1 className="text-5xl font-bold text-primary">Budget Tracker</h1>
-        <div className="text-white mt-4 font-medium">
-          Hello your current budget is: $1000
-        </div>
+      <div>
+        <h1 className="text-primary text-5xl font-bold mb-4">Budget</h1>
+        <div className="text-2xl">$1000</div>
+      </div>
+      <div>
+        <h1 className="text-secondary text-5xl font-bold mb-4">Expenses</h1>
+        <div className="text-2xl">$800</div>
       </div>
     </>
   );

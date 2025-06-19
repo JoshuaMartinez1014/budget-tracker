@@ -1,9 +1,26 @@
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 
 @theme {
   --color-primary: oklch(79.2% 0.209 151.711);
+  --color-secondary: oklch(60% 0 0);
   --color-bgprimary: oklch(21% 0.034 264.665);
+
   --color-nav-header: oklch(50% 0 0);
   --color-nav-header-active: black;
   --color-nav-header-hover: oklch(20% 0 0);
+
+  --text-main: ;
+}
+
+/* Hide number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }

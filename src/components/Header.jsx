@@ -1,12 +1,10 @@
-import { useState } from "react";
-
 function Header({ activeTab, setActiveTab }) {
   const tabs = [
     {
       id: "home",
       label: (
         <svg
-          class="w-4 h-4 me-2  group-hover:text-gray-500 "
+          className="w-4 h-4 me-2  group-hover:text-gray-500 "
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -21,7 +19,7 @@ function Header({ activeTab, setActiveTab }) {
       id: "budgets",
       label: (
         <svg
-          class="w-4 h-4 me-2  group-hover:text-gray-500 "
+          className="w-4 h-4 me-2  group-hover:text-gray-500 "
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -36,7 +34,7 @@ function Header({ activeTab, setActiveTab }) {
       id: "settings",
       label: (
         <svg
-          class="w-4 h-4 me-2  group-hover:text-gray-500 "
+          className="w-4 h-4 me-2  group-hover:text-gray-500 "
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -51,7 +49,7 @@ function Header({ activeTab, setActiveTab }) {
   return (
     /*  */
     /*  */
-    <div className="text-black bg-primary flex justify-between px-4 shadow-xl">
+    <div className="text-black bg-primary flex justify-between px-4 shadow-xl mb-8">
       <ul className="flex flex-wrap font-medium">
         {tabs.map((tab) => (
           <li key={tab.id} className="me-2">
