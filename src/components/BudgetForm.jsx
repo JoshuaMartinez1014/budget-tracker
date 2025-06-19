@@ -1,9 +1,13 @@
 import { useState } from "react";
 
-function BudgetImport() {
+function BudgetImport({ onSubmit }) {
   // State for income and expense input fields
   const [expenses, setExpenses] = useState([{ name: "", amount: "" }]);
   const [incomes, setIncomes] = useState([{ name: "", amount: "" }]);
+
+  // Budget Data
+  const [budgetName, setBudgetName] = useState("");
+  const [timeFrame, setTimeFrame] = useState("");
 
   // Alert visibility state
   const [showIncomeAlert, setShowIncomeAlert] = useState(false);
@@ -29,6 +33,19 @@ function BudgetImport() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); // prevent page reload
+
+    const formData = {
+      name: budgetName,
+      timeFrame,
+      incomes,
+      expenses,
+    };
+
+    onSubmit(formData);
+  };
+
   // Dismiss alert manually
   const handleExitIncomeAlert = () => setShowIncomeAlert(false);
   const handleExitExpenseAlert = () => setShowExpenseAlert(false);
@@ -40,7 +57,7 @@ function BudgetImport() {
         Welcome, please complete your first budget!
       </h1>
 
-      <form className="w-full max-w-4xl mx-auto p-4">
+      <form className="w-full max-w-4xl mx-auto p-4" onSubmit={handleSubmit}>
         <div className="flex gap-6">
           {/* ====================== LEFT COLUMN ====================== */}
           <div className="w-1/2">
@@ -57,6 +74,8 @@ function BudgetImport() {
                 id="budget_name"
                 className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600"
                 placeholder="e.g. January Budget"
+                value={budgetName}
+                onChange={(e) => setBudgetName(e.target.value)}
                 required
               />
             </div>
@@ -153,6 +172,8 @@ function BudgetImport() {
                 id="timeFrame"
                 className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg p-2.5 block w-full dark:bg-gray-700 dark:border-gray-600"
                 placeholder="e.g. Weekly / Monthly"
+                value={timeFrame}
+                onChange={(e) => setTimeFrame(e.target.value)}
                 required
               />
             </div>

@@ -18,13 +18,24 @@ function App() {
     }
   });
 
+  const handleBudgetSubmit = (data) => {
+    localStorage.setItem("budgetLS", JSON.stringify(data));
+    setActivetab("home"); // Hide first form after submit
+  };
+
+  const consoleLogTab = () => {
+    console.log(activeTab);
+  };
+
   return (
     <>
       <div className="bg-bgprimary text-white min-h-screen">
         <Header activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="flex justify-center">
           <div>
-            {activeTab === "budgetForm" && <BudgetForm />}
+            {activeTab === "budgetForm" && (
+              <BudgetForm onSubmit={(handleBudgetSubmit, setActiveTab)} />
+            )}
             {activeTab === "home" && <Home />}
             {activeTab === "budgets" && <Budgets />}
           </div>
